@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Palindrome</title>
+</head>
+<body>
+<script>
+    let a = "shelehs";
+
+    function palindrome(a) {
+        let result = true;
+        for (let i = 0; i < a.length; i++) {
+            if (!(a[i] === a[a.length - 1 - i])) {
+                result = false;
+            }
+        }
+
+        return result;
+    }
+
+
+    document.write(palindrome(a));
+
+</script>
+</body>
+</html>

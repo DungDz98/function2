@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ex7</title>
+</head>
+<body>
+<script>
+  let number1 = parseFloat(prompt('Nhap so thu nhat: '));
+  let number2 = parseFloat(prompt('Nhap so thu hai: '));
+  function swap(a, b) {
+    let c = a;
+    a = b;
+    b = c;
+    return ('So thu nhat la: ' + a + ' ' +'So thu hai la: ' + b);
+  }
+  alert(swap(number1, number2));
+</script>
+</body>
+</html>

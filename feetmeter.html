@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Feet&meter</title>
+</head>
+<body>
+<input id="input" type="number" onchange="" oninput="">
+<select id="opt">
+    <option value="meter">Meter</option>
+    <option value="foot">Foot</option>
+</select>
+<input type="button" onclick="convert()" value="Convert">
+<p>
+    Result: <span id="result"></span>
+</p>
+<script>
+    function convert() {
+        let condition = document.getElementById('opt').value;
+        if (condition == 'meter') {
+            document.getElementById('input').onchange = metertoFoot(document.getElementById('input').value);
+            document.getElementById('input').oninput = metertoFoot(document.getElementById('input').value);
+        } else if (condition == 'foot') {
+            document.getElementById('input').onchange = foottoMeter(document.getElementById('input').value);
+            document.getElementById('input').oninput = foottoMeter(document.getElementById('input').value);
+        }
+    }
+
+    function foottoMeter(foot) {
+        foot = parseFloat(foot);
+        let foot1 = 0.305 * foot;
+        document.getElementById('result').innerHTML = foot1;
+
+    }
+
+    function metertoFoot(meter) {
+        meter = parseFloat(meter);
+        let meter1 = 3.279 * meter;
+        document.getElementById('result').innerHTML = meter1;
+    }
+</script>
+</body>
+</html>

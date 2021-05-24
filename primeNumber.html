@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PrimeNumber</title>
+</head>
+<body>
+<script>
+    function isPrime(number) {
+        if (number < 2) {
+            return false;
+        } else if (number == 2) {
+            return true;
+        } else if (number % 2 == 0) {
+            return false;
+        } else {
+            for (let i = 3; i < Math.sqrt(number); i++) {
+                if (number % i == 0) {
+                    return false;
+                    break;
+                }
+            }
+        }
+        return true;
+    }
+    let input = +prompt('Nhap so can kiem tra vao: ');
+    if (isPrime(input)) {
+        alert('Right!')
+    } else {
+        alert('No;')
+    };
+</script>
+</body>
+</html>

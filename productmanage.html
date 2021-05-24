@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Product_manage</title>
+    <style>
+        body {
+            height: 900px;
+        }
+
+        table {
+            width: 800px;
+        }
+
+        table tr td {
+            padding: 10px;
+            border: none;
+        }
+
+        table td {
+            border: none;
+        }
+
+        table tr:nth-child(odd) {
+            background-color: #f2f2f2;
+        }
+
+        .btn {
+            background-color: #50af50;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            display: inline-block;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<h1>Add New Product</h1>
+<div style="background-color: #f2f2f2; width: 450px; padding: 20px">
+    <input style="padding: 10px 20px; border: 1px solid #4e4949" type="text" placeholder="New Product" id="input">
+    <input class="btn" type="button" value="Add" onclick="addPro()">
+</div>
+<h1>Display All Product</h1>
+<table id="board">
+
+</table>
+<script>
+    let listProducts = [];
+    display();
+
+    function addPro() {
+        let input = document.getElementById('input').value;
+        listProducts.push(input);
+        display();
+    }
+
+    function display() {
+        let str = '';
+        str += "<tr style=\"background-color: white\">\n" +
+            "            <td colSpan=\"2\"><h2>Product Name</h2></td>\n" +
+            "            <td style=\"color: red; text-align: right;\"><b>" + listProducts.length + " products</b></td>\n" +
+            "        </tr>";
+        for (let i = 0; i < listProducts.length; i++) {
+            str += "<tr>\n" +
+                "        <td>" + listProducts[i] + "</td>\n" +
+                "        <td><input type=\"button\" class=\"btn\" value=\"Edit\" onclick=\"editPro(" + i + "  )\"></td>\n" +
+                "        <td><input type=\"button\" class=\"btn\" value=\"Delete\" onclick=\"deletePro(" + i + ")\"></td>\n" +
+                "    </tr>"
+        }
+        document.getElementById('board').innerHTML = str;
+        document.getElementById('input').value = "";
+    }
+
+    function editPro(index) {
+        let retype = prompt('Nhập vào tên bạn muốn sửa: ');
+        listProducts[index] = retype;
+        display();
+    }
+
+    function deletePro(index) {
+        listProducts.splice(index, 1);
+        display();
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ex9</title>
+</head>
+<body>
+<script>
+  let input = prompt('Enter a character');
+  let arr1 = ['+' , '-', '-', '/', '*', '+', '+' , '-'];
+  function countChar(arr, a) {
+    let count = 0;
+    for (let i = 0; i < arr.length; i++) {
+      if (a == arr[i]) {
+        count++;
+      }
+    }
+    return count;
+  }
+
+  if (countChar(arr1, input)) {
+    alert('So lan xuat hien cua ky tu la: '+ countChar(arr1, input))
+  } else {
+    alert('Khong co ky tu can tim');
+  }
+</script>
+</body>
+</html>
